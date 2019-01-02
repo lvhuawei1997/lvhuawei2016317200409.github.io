@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>配肥和配药管理</title>
+ {% endblock %}
+
+
+{% block content %}
+    <div class="container" style="padding-bottom: 5px;">
+        <a href="/adddosage/" class="btn btn-info glyphicon glyphicon-plus">添加配肥配药记录</a>
+        <a href="/returnfarmer/" class="btn btn-danger">返回</a>
+    </div>
+    <div class="container">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>日期</th>
+                <th>肥料或农药名称</th>
+                <th>临时工劳务费</th>
+                <th>总重量损耗比</th>
+                <th>原料名称及数量（kg）</th>
+                <th class="last">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            {% for dosage in dosage_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td hidden>{{ dosage.id}}</td>
+                    <td>{{ dosage.dosage_date}}</td>
+                    <td>{{ dosage.muck_name }}</td>
+                    <td>{{ dosage.tlc }}</td>
+                    <td>{{ dosage.twlr }}</td>
+                    <td>{{ dosage.naworm }}</td>
+
+
+                    <td>
+                        <a href="/deldosage/{{ dosage.pk }}" class="btn btn-danger" >删除</a>
+                        <a href="/editdosage/{{ dosage.pk }}" class="btn btn-success" >编辑</a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    $(function () {
+        $("li[class=active]").parent().children().eq(1).addClass("active").siblings().removeClass("active");
+    })
+{% endblock %}

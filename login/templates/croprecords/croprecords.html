@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>农作记录管理</title>
+ {% endblock %}
+
+
+{% block content %}
+    <div class="container" style="padding-bottom: 5px;">
+        <a href="/addcroprecords/" class="btn btn-info glyphicon glyphicon-plus">添加农作记录</a>
+        <a href="/returnfarmer/" class="btn btn-danger">返回</a>
+    </div>
+    <div class="container">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>日期</th>
+                <th>土地编号</th>
+                <th>临时工劳务费</th>
+                <th>农作名称</th>
+                <th>肥料名称及数量（kg）</th>
+                <th>种子名称及数量（kg）</th>
+                <th class="last">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            {% for croprecords in croprecords_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td hidden>{{ croprecords.id}}</td>
+                    <td>{{ croprecords.croprecords_date}}</td>
+                    <td>{{ croprecords.land_id }}</td>
+                    <td>{{ croprecords.tlc }}</td>
+                    <td>{{ croprecords.crop_name }}</td>
+                    <td>{{ croprecords.naworm }}</td>
+                    <td>{{ croprecords.nanosu }}</td>
+
+
+                    <td>
+                        <a href="/delcroprecords/{{ croprecords.pk }}" class="btn btn-danger" >删除</a>
+                        <a href="/editcroprecords/{{ croprecords.pk }}" class="btn btn-success" >编辑</a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    $(function () {
+        $("li[class=active]").parent().children().eq(1).addClass("active").siblings().removeClass("active");
+    })
+{% endblock %}

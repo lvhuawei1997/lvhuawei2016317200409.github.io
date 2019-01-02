@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}主页{% endblock %}
+{% block content %}
+    <input id="btn1" type="button" value="向左">
+    <input id="btn2" type="button" value="向右">
+    <div id="div1">
+        <ul id="ul1">
+            <li><img src="{% static "images/5.jpg" %}" height=300 width=600></li>
+            <li><img src="{% static "images/1.jpg" %}" height=300 width=600></li>
+            <li><img src="{% static "images/2.jpg" %}" height=300 width=600></li>
+            <li><img src="{% static "images/3.jpg" %}" height=300 width=600></li>
+            <li><img src="{% static "images/4.jpg" %}" height=300 width=600></li>
+            <li><img src="{% static "images/5.jpg" %}" height=300 width=600></li>
+            <li><img src="{% static "images/1.jpg" %}" height=300 width=600></li>
+         </ul>
+    </div>
+        <div style="margin:0 auto;border-style:solid; border-width:1px; border-color:#2aabd2;width: 1000px " >
+        <!--<p style="text-align: center"><img src="{% static "images/1.jpg" %}" height=300 width=1000 /></p>--->
+        <h3 style="color: #4cae4c" align="center">地球是我们所有福祉的源泉，是繁荣的基础。</h3><br />
+        <h4 style="color: #4cae4c" align="center">我们坚信土地是有生命的，从我们呼吸的氧气，到土壤、水分还有为我们的食物传花授粉的昆虫，我们需要尊重相待。</h4><br />
+        <h4 style="color: #4cae4c" align="center">秉持&quot;耕耘快乐 分享爱&quot;的理念，我们耕耘快乐，分享果实，传递&quot;可持续的自然生活&quot;态度。</h4><br />
+        <h4 style="color: #4cae4c" align="center">关注自然万物之间的关系，分享既有传承又面向未来的生活方式，尽享与大自然和谐相处的愉悦，也尽享食物的美好体验。</h4><br />
+        <h4 style="color: #449d44"  align="center">颗颗来自土地的心意</h4><br /><br />
+        <h3 style="color: #449d44"  align="center">我们眼中的标杆有机农场</h3>
+        <h3 style="color: #449d44"  align="center">为消费者提供更多安全健康的食物；</h3>
+        <h3 style="color: #449d44"  align="center">为地球环境作出贡献。与地球和谐共生，是我们心目中的有机。</h3>
+        <br />
+    <div class="pl_btn"  style="float:left;width:140px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon01a.png" />
+        <div class="pl_bso">优 选 产 地</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon02a.png" />
+        <div class="pl_bso">土 壤 改 良</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon03a.png" />
+        <div class="pl_bso">本 地 农 业</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon04a.png" />
+        <div class="pl_bso">生 态 重 建</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon05a.png" />
+        <div class="pl_bso">可 持 续 化</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon06a.png" />
+        <div class="pl_bso">生 物 多 样</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon07a.png" />
+        <div class="pl_bso">有 机 耕 作</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon08a.png" />
+        <div class="pl_bso">可  追  溯</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:140px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon09a.png" />
+        <div class="pl_bso">透  明  化</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon10a.png" />
+        <div class="pl_bso">智 慧 农 场</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon11a.png" />
+        <div class="pl_bso">科 技 农 业</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon12a.png" />
+        <div class="pl_bso">学 农 教 育</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon13a.png" />
+        <div class="pl_bso">农 业 体 验</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon14a.png" />
+        <div class="pl_bso"> 人 道 主 义</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon15a.png" />
+        <div class="pl_bso"> 关 爱 动 物</div>
+    </div>
+    <div class="pl_btn" style="float:left;width:120px;" align="center"><img class="pl_oshow" src="http://www.xugeng.com.cn/uploadfile/statics/1905/images/plcon16a.png" />
+        <div class="pl_bso" > 走 地 散 养</div>
+    </div>
+    <div class="clearfix">&nbsp;</div>
+    <br />
+    <br />
+    <br />
+    <p style="text-align: center"><img src="{% static "images/2.jpg" %}" height=300 width=1000 /></p>
+    <div id="divContainer">
+      有机农场总销量走势图<br/>
+      <canvas id="cv">你的设备不支持图表数据显示</canvas>
+    </div>
+    <br />
+    <br />
+
+</div>
+
+{% endblock %}

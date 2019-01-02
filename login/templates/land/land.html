@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>土地管理</title>
+ {% endblock %}
+
+
+{% block content %}
+    <div class="container" style="padding-bottom: 5px;">
+        <a href="/addland/" class="btn btn-info glyphicon glyphicon-plus">添加土地</a>
+        <a href="/returnfarmer/" class="btn btn-danger">返回</a>
+    </div>
+    <div class="container">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>地区</th>
+                <th>地标</th>
+                <th>地块</th>
+                <th>地位</th>
+                <th>面积</th>
+                <th class="last">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            {% for land in land_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td hidden>{{ land.id}}</td>
+                    <td>{{ land.zone }}</td>
+                    <td>{{ land.landmark }}</td>
+                    <td>{{ land.lot }}</td>
+                    <td>{{ land.position }}</td>
+                    <td>{{ land.area }}</td>
+
+
+                    <td>
+                        <a href="/delland/{{ land.pk }}" class="btn btn-danger" >删除</a>
+                        <a href="/editland/{{ land.pk }}" class="btn btn-success" >编辑</a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    $(function () {
+        $("li[class=active]").parent().children().eq(1).addClass("active").siblings().removeClass("active");
+    })
+{% endblock %}

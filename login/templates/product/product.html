@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>生产资料管理</title>
+ {% endblock %}
+
+
+{% block content %}
+    <div class="container" style="padding-bottom: 5px;">
+        <a href="/addproduct/" class="btn btn-info glyphicon glyphicon-plus">添加生产资料</a>
+        <a href="/returnfarmer/" class="btn btn-danger">返回</a>
+    </div>
+    <div class="container">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>购置时间</th>
+                <th>生产资料名称</th>
+                <th>购置数量</th>
+                <th>购置价格</th>
+                <th>备注</th>
+                <th class="last">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            {% for product in product_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td hidden>{{ product.id}}</td>
+                    <td>{{ product.purchase_date}}</td>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.purchase_number }}</td>
+                    <td>{{ product.purchase_price }}</td>
+                    <td>{{ product.remark }}</td>
+
+
+                    <td>
+                        <a href="/delproduct/{{ product.pk }}" class="btn btn-danger" >删除</a>
+                        <a href="/editproduct/{{ product.pk }}" class="btn btn-success" >编辑</a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    $(function () {
+        $("li[class=active]").parent().children().eq(1).addClass("active").siblings().removeClass("active");
+    })
+{% endblock %}

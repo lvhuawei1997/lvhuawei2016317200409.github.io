@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="col-md-4">
+            <h4>添加生产资料信息</h4>
+            <form action="/addproduct/" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="purchase_date">购置时间</label>
+                    <input type="text" class="form-control" id="purchase_date" name="purchase_date"
+                           placeholder="请输入要添加的购置时间">
+                </div>
+                <div class="form-group">
+                    <label for="product_name">生产资料名称</label>
+                    <input type="text" class="form-control" id="product_name" name="product_name"
+                           placeholder="请输入要添加的生产资料名称">
+                </div>
+                <div class="form-group">
+                    <label for="purchase_number">购置数量</label>
+                    <input type="text" class="form-control" id="purchase_number" name="purchase_number"
+                           placeholder="请输入要添加的购置数量">
+                </div>
+                 <div class="form-group">
+                    <label for="purchase_price">购置价格</label>
+                    <input type="text" class="form-control" id="purchase_price" name="purchase_price"
+                           placeholder="请输入要添加的购置价格">
+                </div>
+                <div class="form-group">
+                    <label for="remark">备注</label>
+                    <input type="text" class="form-control" id="remark" name="remark"
+                           placeholder="请输入要添加的备注">
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <a href="/product/" class="btn btn-danger">返回</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

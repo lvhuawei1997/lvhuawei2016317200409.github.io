@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>技术员管理</title>
+ {% endblock %}
+
+
+{% block content %}
+    <div class="container" style="padding-bottom: 5px;">
+    <br />
+    <h1 style="color: #4cae4c" align="center" xmlns="http://www.w3.org/1999/html">你好,{{ request.session.user_name }}！欢迎回来！</h1>
+        <h2 style="color:#419641;">选择您接下来将要的操作：</h2>
+        <br />
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th><a href="../land/land.html">土地管理</a></th>
+                <th><a href="../product/product.html"> 生产材料购买</a></th>
+                <th><a href="../dosage/dosage.html">配肥和配药管理</a></th>
+                <th><a href="../croprecords/croprecords.html">农作物记录管理</a></th>
+                <th><a href="../recovery/recovery.html">实际采收管理</a></th>
+            </tr>
+            </thead>
+        </table>
+
+    </div>
+        <!-- about us -->
+	<div class="about-w3layouts">
+		<div class="container">
+			<div class="agileits-heading">
+				<h2>Welcome</h2>
+			</div>
+			<div class="about-top-grids">
+				<div class="col-md-6 w3-about-left">
+					<h5>农场规划与建设的基本原则</h5>
+                    <p>1. 畅通的销售渠道: 销售渠道主要是会员，发展会员主要通过会员口碑营销，有组建完整的营销团队。在日常工作中尽量避免商业化推销，力图在与消费者的交流和互动中，通过消费者对四季分享的了解和对有机理念的理解，来发展成为新的会员。 </p>
+                    <p>2 专业的生产技术 :有机蔬菜生产是一个技术门槛很高的行业，一段时间业内盛传有机蔬菜品质、外观和口感不如传统产品，经过这么多年的有机种植历程，张和平确信有机不是歪瓜劣枣。一直致力组建强大的技术团队，他们提供给会员的蔬菜，基本都是净菜，可食部超过95%，不仅比常规产品好看，并且美味。</p>
+                    <p>3.完善的管理体制:首先，要做到农场的可持续发展，一定要抓好产品质量关，减小客户投诉率，珍惜客户的信任与忠诚。其次， 高效的用工管理有机蔬菜种植需要精耕细作，劳动力是成本的主要来源，超过产品成本7成，而劳动素质高的劳动力渐趋短缺。
+						再次， 合理的农资投入管理，包括种子、肥料、生物农药等等是农场投入最高的环节， 其中肥料是投入最高的农资，既要降低肥料投入成本，又要保证肥料的质量。
+						</p>
+					<div class="w3l-button">
+						<a href="index.html">More</a>
+					</div>
+				</div>
+
+				<div class="col-md-6 agileits_updates_grid_right">
+					<h3>生产 <span>提醒</span></h3>
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					  <div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingOne">
+						  <h4 class="panel-title asd">
+							<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>2018-12-30
+							</a>
+						  </h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						  <div class="panel-body panel_text">
+							原因调清楚，是农场主吃了。
+						  </div>
+						</div>
+					  </div>
+					  <div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingTwo">
+						  <h4 class="panel-title asd">
+							<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>2018-12-29
+							</a>
+						  </h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+						   <div class="panel-body panel_text">
+							C地区番茄大批死亡，正在调查原因
+						  </div>
+						</div>
+					  </div>
+					  <div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingThree">
+						  <h4 class="panel-title asd">
+							<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>2018-12-28
+							</a>
+						  </h4>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+						   <div class="panel-body panel_text">
+							A地区土豆不孕不育症已解决
+						  </div>
+						</div>
+					  </div>
+					  <div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingFour">
+						  <h4 class="panel-title asd">
+							<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+							  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>2018-12-27
+							</a>
+						  </h4>
+						</div>
+						<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+						   <div class="panel-body panel_text">
+							A地区出现土豆不孕不育症
+						  </div>
+						</div>
+					  </div>
+
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //about us -->
+{% endblock %}
+
+
+{% block script %}
+    $(function () {
+        $("li[class=active]").parent().children().eq(1).addClass("active").siblings().removeClass("active");
+    })
+{% endblock %}
+
+

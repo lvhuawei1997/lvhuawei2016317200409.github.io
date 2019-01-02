@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="col-md-4">
+            <h4>添加生产资料信息</h4>
+            <form action="/adddosage/" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="dosage_date">日期</label>
+                    <input type="text" class="form-control" id="dosage_date" name="dosage_date"
+                           placeholder="请输入要添加的日期">
+                </div>
+                <div class="form-group">
+                    <label for="muck_name">肥料或农药名称</label>
+                    <input type="text" class="form-control" id="muck_name" name="muck_name"
+                           placeholder="请输入要添加的肥料或农药名称">
+                </div>
+                <div class="form-group">
+                    <label for="tlc">临时工劳务费</label>
+                    <input type="text" class="form-control" id="tlc" name="tlc"
+                           placeholder="请输入要添加的临时工劳务费">
+                </div>
+                 <div class="form-group">
+                    <label for="twlr">总重量损耗比</label>
+                    <input type="text" class="form-control" id="twlr" name="twlr"
+                           placeholder="请输入要添加的总重量损耗比">
+                </div>
+                <div class="form-group">
+                    <label for="naworm">使用原料名称及数量（kg）</label>
+                    <input type="text" class="form-control" id="naworm" name="naworm"
+                           placeholder="请输入要添加的使用原料名称及数量（kg）">
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <a href="/dosage/" class="btn btn-danger">返回</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

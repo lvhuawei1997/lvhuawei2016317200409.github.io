@@ -1,0 +1,222 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>{% block title %}base{% endblock %}</title>
+    <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #div1{
+      width: 1000px;
+      height: 300px;
+      margin: 10px auto;
+      background-color: #646464;
+      position: relative;
+      overflow: hidden;
+    }
+    #div1 ul{
+      position:absolute;
+      left:0;
+      top:0;
+      overflow: hidden;
+      background-color: #3b7796;
+    }
+
+    #div1 ul li{
+      float: left;
+      width: 600px;
+      height: 300px;
+      list-style: none;
+    }
+      #divContainer{
+        margin-top: 20px;
+        text-align: center;
+      }
+      #cv{
+        width: 900px;
+        height: 300px;
+        border-bottom: 2px solid #000;
+        border-left: 2px solid #000;
+      }
+    /*return top*/
+
+    .footer{position:fixed;bottom:0;width:100%;height:20px;background-color: #d0e9c6;}
+
+  </style>
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block css %}{% endblock %}
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid" style="background: #d0e9c6 ;width: 100%;position:fixed;">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header" >
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-nav" aria-expanded="false">
+            <span class="sr-only">切换导航条</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">有机农场生产管理系统</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="my-nav">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/index/">主页</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              {% if request.session.is_login %}
+                  <li><a href="#">当前在线：{{ request.session.user_name }}</a></li>
+                  <li><a href="/logout/">登出</a></li>
+              {% else %}
+                  <li><a href="/login/">登录</a></li>
+                  <li><a href="/register/">注册</a></li>
+              {% endif %}
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+
+    </nav>
+
+    {% block content %}{% endblock %}
+    <div class="OnlineService_Bg">
+	<div class="OnlineService_Box">
+		<div class="OnlineService_Phone"><a href="/page_not_found/" target="_blank">在线咨询</a></div>
+		<div class="OnlineService_Top"><a href="#">返回顶部</a></div>
+	</div>
+    </div>
+    <div class="footer" align="center">
+        <p>web大作业 author：lvhuawei</p>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery-3.2.1.js"%}"></script>
+    <script type="text/javascript" color="80,20,205" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+    <script>
+    window.onload = function(){
+      var oDiv = document.getElementById('div1');
+      var oUl = document.getElementById('ul1');
+      var speed = 2;//初始化速度
+
+      oUl.innerHTML += oUl.innerHTML;//图片内容*2-----参考图（2）
+      var oLi= document.getElementsByTagName('li');
+      oUl.style.width = oLi.length*160+'px';//设置ul的宽度使图片可以放下
+
+      var oBtn1 = document.getElementById('btn1');
+      var oBtn2 = document.getElementById('btn2');
+
+
+      function move(){
+        if(oUl.offsetLeft<-(oUl.offsetWidth/2)){//向左滚动，当靠左的图4移出边框时
+          oUl.style.left = 0;
+        }
+
+        if(oUl.offsetLeft > 0){//向右滚动，当靠右的图1移出边框时
+          oUl.style.left = -(oUl.offsetWidth/2)+'px';
+        }
+
+        oUl.style.left = oUl.offsetLeft + speed + 'px';
+      }
+
+      oBtn1.addEventListener('click',function(){
+        speed = -2;
+      },false);
+      oBtn2.addEventListener('click',function(){
+        speed = 2;
+      },false);
+
+      var timer = setInterval(move,30);//全局变量 ，保存返回的定时器
+
+      oDiv.addEventListener('mouseout', function () {
+        timer = setInterval(move,30);
+      },false);
+      oDiv.addEventListener('mousemove', function () {
+        clearInterval(timer);//鼠标移入清除定时器
+      },false);
+    }
+
+  </script>
+ <script>
+      (function(){
+          //数据源
+          var dict = [
+            {x: "2018-6", y: 340},
+            {x: "2018-7", y: 538},
+            {x: "2018-8", y: 837},
+            {x: "2018-9", y: 1337},
+            {x: "2018-10", y: 1380},
+            {x: "2018-11", y: 1570},
+            {x: "2018-12", y: 1670}
+          ]
+          //数据源提取
+          var len = dict.length;
+          var xArr = [], yArr = [], tmp_yArr = [];
+          for(var i=0; i<len; i++){
+            xArr.push(i * 40);
+            tmp_yArr.push(dict[i].y);
+          }
+          var tmp_minY = Math.min.apply(Math, tmp_yArr);//最小值
+          var tmp_maxY = Math.max.apply(Math, tmp_yArr);//最大值
+          if(tmp_maxY - tmp_minY <= 100){
+            for(var i=0; i<len; i++){
+              yArr.push(tmp_yArr[i] - tmp_minY + 50);//与最小的做比较
+            }
+          }
+          else{//如果相差太大会导致图表不美观
+            for(var i=0; i<len; i++){
+              yArr.push(tmp_yArr[i] / 20);
+            }
+          }
+          var minY = Math.min.apply(Math, yArr);
+          var maxY = Math.max.apply(Math, yArr);
+          //canvas 准备
+          var canvas = document.getElementById("cv");//获取canvas画布
+          var ctx = canvas.getContext("2d");
+          //画折线
+          for(var i=0 ;i<len; i++){
+            var x = xArr[i];
+            var y = maxY - yArr[i] + minY;
+            if(i === 0){
+              ctx .moveTo(x, y);
+            }
+            else{
+              ctx .lineTo(x, y);
+            }
+          }
+          ctx .stroke();
+          //画点
+          for(var i=0; i<len; i++){
+            var x = xArr[i];
+            var y = maxY - yArr[i] + minY;
+            var xMemo = dict[i].x;
+            var yMemo = dict[i].y+ "t" ;
+            ctx.beginPath();
+            ctx.fillStyle = "#000";
+            ctx.arc(x, y, 2, 0, 2*Math.PI);//画点
+            ctx.fill();
+            ctx.fillText(yMemo, x + 3, y - 10);
+            ctx.fillText(xMemo, x + 3, canvas.height - 10, 20);//画文字
+          }
+      })();
+    </script>
+  <script type="text/javascript" src="{% static "js/bootstrap.js"%}"></script>
+
+  </body>
+</html>

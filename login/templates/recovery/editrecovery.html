@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="col-md-4">
+            <h4>更改实际采收信息</h4>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="recovery_date">采收日期</label>
+                    <input type="text" class="form-control" id="recovery_date" name="recovery_date"
+                           value="{{ recovery_obj.recovery_date }}">
+                </div>
+                <div class="form-group">
+                    <label for="vegetables_name">蔬菜名称</label>
+                    <input type="text" class="form-control" id="vegetables_name" name="vegetables_name"
+                           value="{{ recovery_obj.vegetables_name }}">
+                </div>
+                <div class="form-group">
+                    <label for="recovery_number">采收数量（kg）</label>
+                    <input type="number" class="form-control" id="recovery_number" name="recovery_number"
+                           value="{{ recovery_obj.recovery_number }}">
+                </div>
+                <div class="form-group">
+                    <label for="price">销售单价</label>
+                    <input type="text" class="form-control" id="price" name="price"
+                           placeholder="请输入要添加的农作名称">
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <a href="/recovery/" class="btn btn-danger">返回</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

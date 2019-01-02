@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="col-md-4">
+            <h4>添加土地信息</h4>
+            <h4><a href="/land/"返回</h4>
+            <form action="/addland/" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="zone">地区</label>
+                    <input type="text" class="form-control" id="zone" name="zone"
+                           placeholder="请输入要添加的土地地区">
+                </div>
+                <div class="form-group">
+                    <label for="landmark">地标</label>
+                    <input type="text" class="form-control" id="landmark" name="landmark"
+                           placeholder="请输入要添加的土地地标">
+                </div>
+                <div class="form-group">
+                    <label for="lot">地块</label>
+                    <input type="text" class="form-control" id="lot" name="lot"
+                           placeholder="请输入要添加的土地地块">
+                </div>
+                 <div class="form-group">
+                    <label for="position">地位</label>
+                    <input type="text" class="form-control" id="position" name="position"
+                           placeholder="请输入要添加的土地地位">
+                </div>
+                <div class="form-group">
+                    <label for="area">面积</label>
+                    <input type="text" class="form-control" id="area" name="area"
+                           placeholder="请输入要添加的土地面积">
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <a href="/land/" class="btn btn-danger">返回</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

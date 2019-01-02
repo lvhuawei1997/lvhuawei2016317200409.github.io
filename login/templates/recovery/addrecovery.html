@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="col-md-4">
+            <h4>添加农作记录信息</h4>
+            <form action="/addrecovery/" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="recovery_date">采收日期</label>
+                    <input type="text" class="form-control" id="recovery_date" name="recovery_date"
+                           placeholder="请输入要添加的日期">
+                </div>
+                <div class="form-group">
+                    <label for="vegetables_name">蔬菜名称</label>
+                    <input type="text" class="form-control" id="vegetables_name" name="vegetables_name"
+                           placeholder="请输入要添加的蔬菜名称">
+                </div>
+                <div class="form-group">
+                    <label for="recovery_number">采收数量</label>
+                    <input type="text" class="form-control" id="recovery_number" name="recovery_number"
+                           placeholder="请输入要添加的采收数量">
+                </div>
+                <div class="form-group">
+                    <label for="price">销售单价</label>
+                    <input type="text" class="form-control" id="price" name="price"
+                           placeholder="请输入要添加的销售单价">
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <a href="/recovery/" class="btn btn-danger">返回</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="col-md-4">
+            <h4>更改生产资料信息</h4>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="croprecords_date">日期</label>
+                    <input type="text" class="form-control" id="croprecords_date" name="croprecords_date"
+                           value="{{ croprecords_obj.croprecords_date }}">
+                </div>
+                <div class="form-group">
+                    <label for="land_id">肥料或农药名称</label>
+                    <input type="text" class="form-control" id="land_id" name="land_id"
+                           value="{{ croprecords_obj.land_id }}">
+                </div>
+                <div class="form-group">
+                    <label for="tlc">临时工劳务费</label>
+                    <input type="number" class="form-control" id="tlc" name="tlc"
+                           value="{{ croprecords_obj.tlc }}">
+                </div>
+                <div class="form-group">
+                    <label for="crop_name">农作名称</label>
+                    <input type="text" class="form-control" id="crop_name" name="crop_name"
+                           placeholder="请输入要添加的农作名称">
+                </div>
+                <div class="form-group">
+                    <label for="naworm">使用原料名称及数量（kg）</label>
+                    <input type="text" class="form-control" id="naworm" name="naworm"
+                           value="{{ croprecords_obj.naworm }}">
+                </div>
+                <div class="form-group">
+                    <label for="nanosu">使用原料名称及数量（kg）</label>
+                    <input type="text" class="form-control" id="nanosu" name="nanosu"
+                           value="{{ croprecords_obj.nanosu }}">
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <a href="/croprecords/" class="btn btn-danger">返回</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

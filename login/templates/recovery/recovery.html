@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>实际采收管理</title>
+ {% endblock %}
+
+
+{% block content %}
+    <div class="container" style="padding-bottom: 5px;">
+        <a href="/addrecovery/" class="btn btn-info glyphicon glyphicon-plus">添加采收记录</a>
+        <a href="/returnfarmer/" class="btn btn-danger">返回</a>
+    </div>
+    <div class="container">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>采收日期</th>
+                <th>蔬菜名称</th>
+                <th>采收数量（kg）</th>
+                <th>销售单价（元/kg）</th>
+                <th class="last">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            {% for recovery in recovery_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td hidden>{{ recovery.id}}</td>
+                    <td>{{ recovery.recovery_date}}</td>
+                    <td>{{ recovery.vegetables_name }}</td>
+                    <td>{{ recovery.recovery_number }}</td>
+                    <td>{{ recovery.price }}</td>
+
+
+                    <td>
+                        <a href="/delrecovery/{{ recovery.pk }}" class="btn btn-danger" >删除</a>
+                        <a href="/editrecovery/{{ recovery.pk }}" class="btn btn-success" >编辑</a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    $(function () {
+        $("li[class=active]").parent().children().eq(1).addClass("active").siblings().removeClass("active");
+    })
+{% endblock %}

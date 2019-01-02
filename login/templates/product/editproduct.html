@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="col-md-4">
+            <h4>更改生产资料信息</h4>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="purchase_date">购置时间</label>
+                    <input type="text" class="form-control" id="purchase_date" name="purchase_date"
+                           value="{{ product_obj.purchase_date }}">
+                </div>
+                <div class="form-group">
+                    <label for="product_name">生产资料名称</label>
+                    <input type="text" class="form-control" id="product_name" name="product_name"
+                           value="{{ product_obj.product_name }}">
+                </div>
+                <div class="form-group">
+                    <label for="purchase_number">购置数量</label>
+                    <input type="number" class="form-control" id="purchase_number" name="purchase_number"
+                           value="{{ product_obj.purchase_number }}">
+                </div>
+                 <div class="form-group">
+                    <label for="purchase_price">购置价格</label>
+                    <input type="text" class="form-control" id="purchase_price" name="purchase_price"
+                           value="{{ product_obj.purchase_price }}">
+                </div>
+                <div class="form-group">
+                    <label for="remark">备注</label>
+                    <input type="text" class="form-control" id="remark" name="remark"
+                           value="{{ product_obj.remark }}">
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <a href="/product/" class="btn btn-danger">返回</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
